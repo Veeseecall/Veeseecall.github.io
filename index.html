@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veeseecall的个人主页</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Comic Neue', cursive;
+            font-size: 2.2rem;
+            color: #ff69b4;
+            letter-spacing: 1px;
+        }
+        
+        .search-container {
+            width: 40%;
+            max-width: 500px;
+        }
+        
+        .search-box {
+            display: flex;
+            width: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus-within {
+            border-color: #aaa;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #ff69b4;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2 i {
+            margin-right: 10px;
+            color: #ff69b4;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 70px;
+            padding: 30px;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #666;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: #ff69b4;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                gap: 20px;
+            }
+            
+            .social-links a {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Veeseecall</div>
+        <div class="search-container">
+            <form class="search-box" action="https://www.bing.com/search" method="GET" target="_blank">
+                <input type="text" name="q" class="search-input" placeholder="搜索内容...">
+            </form>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Veeseecall's Little World</h1>
+            <p>你好！我是Veeseecall，一个男生，也是一个人。我热爱信息、设计和生活中一切美好的事物。</p>
+        </section>
+        
+        <main>
+            <div class="content">
+                <div class="card">
+                    <h2><i class="fas fa-user"></i> 关于我</h2>
+                    <p>你好！我是Veeseecall，一个男生，也是一个人。我热爱信息、设计和生活中一切美好的事物。</p>
+
+                    <p>欢迎你！可以吧网站分享给别人哦~</p>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-heart"></i> 兴趣爱好</h2>
+                    <p>我喜欢编程、设计、音乐和阅读。偶尔也会打打游戏，放松心情。</p>
+                    <p>最近在学习前端开发和UI设计，希望创造出更多有趣的作品。</p>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-code"></i> 项目作品</h2>
+                    <p>我在Github展示了我的一些个人项目，包括网站设计、小工具开发等。</p>
+                    <p>每个项目都融入了我的创意和努力，希望你能喜欢。</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; Wenxiao APPs 2025</p>
+            <div class="social-links">
+                <a href="https://baidu.com" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="B站"><i class="fab fa-bilibili"></i></a>
+                <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
+                <a href="#" title="邮箱"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderLeftColor = '#ff8ec7';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderLeftColor = '#ff69b4';
+                });
+            });
+            
+            // 按钮点击效果
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+            
+            // 搜索框聚焦效果
+            const searchInput = document.querySelector('.search-input');
+            const searchBox = document.querySelector('.search-box');
+            
+            searchInput.addEventListener('focus', function() {
+                searchBox.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+                searchBox.style.borderColor = '#aaa';
+            });
+            
+            searchInput.addEventListener('blur', function() {
+                searchBox.style.boxShadow = 'none';
+                searchBox.style.borderColor = '#ddd';
+            });
+        });
+    </script>
+</body>
+</html>
